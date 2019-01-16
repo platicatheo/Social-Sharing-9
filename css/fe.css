@@ -1,0 +1,49 @@
+
+ul.social_icons_container {
+    list-style: none;
+    display: table;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.social_icons_container li {
+	line-height: 12px;
+    float: left;
+    margin-right: 10px;
+}
+
+.social_icons_container li:last-child {
+    margin-right: 0;
+}
+
+.social_icons_container li a {
+	background: #fff;
+    font-size: 12px;
+}
+
+.post_featured_image {
+	display: table;
+	position: relative;
+}
+
+.post_featured_image ul.social_icons_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.floating_left_socials9 {
+    position: fixed;
+    left: 20px;
+    top: 100px;
+    z-index: 200;
+}
+
+.floating_left_socials9 .social_icons_container li {
+    float: none;
+    display: block;
+    margin-right: 0;
+    margin-bottom: 7px;
+}
+
