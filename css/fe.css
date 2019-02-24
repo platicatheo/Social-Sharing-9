@@ -1,10 +1,17 @@
 
+header ul.social_icons_container,
+footer ul.social_icons_container,
+sidebar ul.social_icons_container {
+    display: none !important;
+}
+
 ul.social_icons_container {
     list-style: none;
     display: table;
     overflow: auto;
-    padding: 0;
     margin: 0;
+    padding: 6px;
+    background: #fff;
 }
 
 .social_icons_container li {
@@ -18,8 +25,8 @@ ul.social_icons_container {
 }
 
 .social_icons_container li a {
-	background: #fff;
     font-size: 12px;
+    display: table;
 }
 
 .post_featured_image {
@@ -37,7 +44,11 @@ ul.social_icons_container {
     position: fixed;
     left: 20px;
     top: 100px;
-    z-index: 200;
+    z-index: 20000;
+}
+
+.floating_left_socials9 ul.social_icons_container {
+    padding: 10px 5px;
 }
 
 .floating_left_socials9 .social_icons_container li {
@@ -45,5 +56,18 @@ ul.social_icons_container {
     display: block;
     margin-right: 0;
     margin-bottom: 7px;
+}
+
+.floating_left_socials9 .social_icons_container li:last-child {
+    margin-bottom: 0;
+}
+
+.inside_featured_img_social9 {
+    position: absolute;
+    z-index: 10;
+}
+
+.socials_title_span {
+    display: none;
 }
 

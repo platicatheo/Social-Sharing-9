@@ -28,30 +28,29 @@
 
 
     // Do Form AJAX
-    function do_social_sharing_9_saving_ajax()
-    {
-		$('button.submit').on('click', function()
-		{
-			// var form_data = $('.all_fields_form').serializeArray();
+    function do_social_sharing_9_saving_ajax() {
 
-			var social_data = {};
-			var i = 1;
+			$('button.submit').on('click', function()	{
+				// var form_data = $('.all_fields_form').serializeArray();
 
-			$.each( $('#sortable li'), function()
-			{
-				var social_name = $(this).find('[name="social_name"]').val();
-				var status = Number( $(this).find('.status_checkbox').is(':checked') );
-				var url = $(this).find('.url_field').val();
-				var color = $(this).find('.my-color-field').val();
+				var social_data = {};
+				var i = 1;
 
-				social_data[social_name] = {};
+				$.each( $('#sortable li'), function()
+				{
+					var social_name = $(this).find('[name="social_name"]').val();
+					var status = Number( $(this).find('.status_checkbox').is(':checked') );
+					var url = $(this).find('.url_field').val();
+					var color = $(this).find('.my-color-field').val();
 
-				social_data[social_name].order_id = i;
-				social_data[social_name].status = status;
-				social_data[social_name].color = color;
+					social_data[social_name] = {};
 
-				i++;
-			});
+					social_data[social_name].order_id = i;
+					social_data[social_name].status = status;
+					social_data[social_name].color = color;
+
+					i++;
+				});
 
 
 		    social_data['post_types'] = $('[name="post_types[]"]').val();
@@ -60,23 +59,32 @@
 
 		    social_data['placement'] = $('[name="placement[]"]').val();
 
-			// console.log( social_data );
+				// console.log( social_data );
 
-			$.post( document.location.origin + '/wp-content/plugins/social_sharing_9/ajax/social_saving_ajax.php' , social_data, function(response) {
-				// console.log(response);
+				var data = {
+									'action': 'social_saving_ajax',
+									'social_data': social_data
+								};
+			
+			// console.log( data );
+			// console.log( ajax_url );
 
-				if(response == 'success')
-				{
-					$('.success_ajax').show();
-					$('.success_ajax').fadeOut(3000);
-				}
-				else
-				{
-					$('.error_ajax').show();
-					$('error_ajax').fadeOut(3000);				
-				}
-			});
-		});	    	
+				$.post( ajax_url , data, function(response) {
+					// console.log(response);
+
+					if(response == 'success')
+					{
+						$('.success_ajax').show();
+						$('.success_ajax').fadeOut(3000);
+					}
+					else
+					{
+						$('.error_ajax').show();
+						$('.error_ajax').fadeOut(3000);				
+					}
+				});
+			});	    
+
     }
 	
 
